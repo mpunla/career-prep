@@ -1,10 +1,11 @@
+import { env } from "@/data/env/server";
 import arcjet, { detectBot, shield, slidingWindow } from "@arcjet/next";
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
 const isPublicRoute = createRouteMatcher(["/", "/sign-in(.*)"]);
 
 const aj = arcjet({
-  key: process.env.ARCJET_KEY!,
+  key: env.ARCJET_KEY,
   rules: [
     detectBot({
       allow: ["CATEGORY:MONITOR", "CATEGORY:PREVIEW", "CATEGORY:SEARCH_ENGINE"],
