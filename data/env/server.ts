@@ -7,5 +7,6 @@ export const env = createEnv({
   server: {
     ARCJET_KEY: z.string().min(1),
     CLERK_SECRET_KEY: z.string().min(1),
+    DATABASE_URL: z.string().min(1),
   },
 });
