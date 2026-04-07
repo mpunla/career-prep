@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
         });
 
         break;
-      case "user:deleted":
+      case "user.deleted":
         if (!event.data.id) {
           return new Response("User ID not found", { status: 400 });
         }
