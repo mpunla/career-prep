@@ -1,3 +1,5 @@
+"use server";
+
 import { db } from "@/drizzle/db";
 import { UserTable } from "@/drizzle/schema";
 import { getUserIdTag } from "@/features/users/dbCache";

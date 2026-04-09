@@ -5,7 +5,7 @@ import { createdAt, id, updatedAt } from "@/drizzle/schemaHelpers";
 import { relations } from "drizzle-orm";
 import { pgEnum, pgTable, varchar } from "drizzle-orm/pg-core";
 
-export const experienceLevels = ["entry", "mid-level", "senior"] as const;
+export const experienceLevels = ["junior", "mid-level", "senior"] as const;
 export type ExperienceLevel = (typeof experienceLevels)[number];
 export const experienceLevelEnum = pgEnum(
   "job_infos_experience_level",

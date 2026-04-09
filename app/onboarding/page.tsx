@@ -9,7 +9,7 @@ export default async function OnboardingPage() {
     return redirect("/");
   }
   if (user) {
-    return redirect("/app");
+    return redirect("/dashboard");
   }
 
   return (

@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import { CustomClerkProivider } from "./services/clerk/components/CustomClerkProvider";
 import { ThemeProvider } from "next-themes";
+import { Toaster } from "sonner";
 
 const outfitSans = Outfit({
   variable: "--font-outfit-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
             enableColorScheme
           >
             {children}
+            <Toaster />
           </ThemeProvider>
         </body>
       </html>

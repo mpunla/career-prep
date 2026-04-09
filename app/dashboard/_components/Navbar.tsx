@@ -8,8 +8,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
-import { UserAvatar } from "@/components/ui/UserAvatar";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { UserAvatar } from "@/components/UserAvatar";
 import {
   BookOpenIcon,
   BrainCircuitIcon,
@@ -35,7 +35,7 @@ export function Navbar({ user }: { user: { name: string; imageUrl: string } }) {
   return (
     <nav className="h-header border-b">
       <div className="container flex h-full items-center justify-between">
-        <Link href="/app" className="flex items-center gap-2">
+        <Link href="/dashboard" className="flex items-center gap-2">
           <BrainCircuitIcon className="size-8 text-primary" />
           <span className="text-xl font-bold">Career Prep</span>
         </Link>
@@ -43,7 +43,7 @@ export function Navbar({ user }: { user: { name: string; imageUrl: string } }) {
         <div className="flex items-center gap-4">
           {typeof jobInfoId === "string" &&
             navLinks.map(({ name, href, Icon }) => {
-              const hrefPath = `/app/job-infos/${jobInfoId}/${href}`;
+              const hrefPath = `/dashboard/job-infos/${jobInfoId}/${href}`;
 
               return (
                 <Button

@@ -15,7 +15,7 @@ export function OnboardingClient({ userId }: { userId: string }) {
         return;
       }
 
-      router.replace("/app");
+      router.replace("/dashboard");
       clearInterval(intervalId);
 
       return () => clearInterval(intervalId);
