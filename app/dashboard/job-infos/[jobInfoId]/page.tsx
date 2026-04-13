@@ -49,7 +49,7 @@ export default async function JobInfoPage({
   const { jobInfoId } = await params;
 
   const jobInfo = await (async () => {
-    const { userId, redirectToSignIn } = await getCurrentUser();
+    const { redirectToSignIn, userId } = await getCurrentUser();
     if (!userId) return redirectToSignIn();
 
     const jobInfo = await getUserJobInfo(jobInfoId, userId);

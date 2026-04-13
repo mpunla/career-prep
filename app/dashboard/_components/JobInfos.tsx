@@ -15,8 +15,7 @@ import { ArrowRightIcon, PlusIcon } from "lucide-react";
 import Link from "next/link";
 
 export async function JobInfos() {
-  const { userId, redirectToSignIn } = await getCurrentUser();
-
+  const { redirectToSignIn, userId } = await getCurrentUser();
   if (!userId) {
     return redirectToSignIn();
   }
@@ -60,7 +59,9 @@ export async function JobInfos() {
                     <Badge variant="outline">
                       {formatExperienceLevel(jobInfo.experienceLevel)}
                     </Badge>
-                    {jobInfo.title && <Badge variant="outline">{jobInfo.title}</Badge>}
+                    {jobInfo.title && (
+                      <Badge variant="outline">{jobInfo.title}</Badge>
+                    )}
                   </CardFooter>
                 </div>
                 <CardContent>
