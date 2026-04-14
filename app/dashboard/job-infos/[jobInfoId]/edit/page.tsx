@@ -3,7 +3,7 @@ import { JobInfoForm } from "@/app/dashboard/_components/JobInfoForm"
 import { getCurrentUser } from "@/app/services/clerk/lib/getCurrentUser"
 import { Card, CardContent } from "@/components/ui/card"
 import { getUserJobInfo } from "@/features/jobInfos/actions"
-import { Loader2 } from "lucide-react"
+import { Loader2Icon } from "lucide-react"
 import { notFound } from "next/navigation"
 import { Suspense } from "react"
 
@@ -23,7 +23,7 @@ export default async function JobInfoNewPage({
       <Card>
         <CardContent>
           <Suspense
-            fallback={<Loader2 className="size-24 animate-spin mx-auto" />}
+            fallback={<Loader2Icon className="size-24 animate-spin mx-auto" />}
           >
             <SuspendedForm jobInfoId={jobInfoId} />
           </Suspense>

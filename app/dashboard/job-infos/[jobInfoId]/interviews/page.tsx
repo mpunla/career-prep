@@ -1,11 +1,15 @@
 import { JobInfoBackLink } from "@/app/dashboard/_components/JobInfoBackLink";
 import { getCurrentUser } from "@/app/services/clerk/lib/getCurrentUser";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getInterviews } from "@/features/interviews/actions";
-import { Loader2 } from "lucide-react";
+import { formatDateTime } from "@/lib/formatters";
+import { ArrowRightIcon, Loader2Icon, PlusIcon } from "lucide-react";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
 
-export default async function InterviewPage({
+export default async function InterviewsPage({
   params,
 }: {
   params: Promise<{ jobInfoId: string }>;
@@ -13,11 +17,11 @@ export default async function InterviewPage({
   const { jobInfoId } = await params;
 
   return (
-    <div className="container flex flex-col gap-4 h-screen-reader items-start py-4 space-y-4">
+    <div className="container py-4 gap-4 h-screen-header flex flex-col items-start">
       <JobInfoBackLink jobInfoId={jobInfoId} />
 
       <Suspense
-        fallback={<Loader2 className="animate-spin m-auto size-24" />}
+        fallback={<Loader2Icon className="size-24 animate-spin m-auto" />}
       >
         <SuspendedPage jobInfoId={jobInfoId} />
       </Suspense>
@@ -26,15 +30,59 @@ export default async function InterviewPage({
 }
 
 async function SuspendedPage({ jobInfoId }: { jobInfoId: string }) {
-  const { redirectToSignIn, userId } = await getCurrentUser();
-  if (!userId) return redirectToSignIn();
+  const { userId, redirectToSignIn } = await getCurrentUser();
+  if (userId == null) return redirectToSignIn();
 
   const interviews = await getInterviews(jobInfoId, userId);
-  if (!interviews || interviews.length === 0) {
+  if (interviews.length === 0) {
     return redirect(`/dashboard/job-infos/${jobInfoId}/interviews/new`);
   }
-
   return (
-    <div>Interviews</div>
+    <div className="space-y-6 w-full">
+      <div className="flex gap-2 justify-between">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl">Interviews</h1>
+        <Button asChild>
+          <Link href={`/dashboard/job-infos/${jobInfoId}/interviews/new`}>
+            <PlusIcon />
+            New Interview
+          </Link>
+        </Button>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 has-hover:*:not-hover:opacity-70">
+        <Link
+          className="transition-opacity"
+          href={`/dashboard/job-infos/${jobInfoId}/interviews/new`}
+        >
+          <Card className="h-full flex items-center justify-center border-dashed border-3 bg-transparent hover:border-primary/50 transition-colors shadow-none">
+            <div className="text-lg flex items-center gap-2">
+              <PlusIcon className="size-6" />
+              New Interview
+            </div>
+          </Card>
+        </Link>
+        {interviews.map((interview) => (
+          <Link
+            className="hover:scale-[1.02] transition-[transform_opacity]"
+            href={`/dashboard/job-infos/${jobInfoId}/interviews/${interview.id}`}
+            key={interview.id}
+          >
+            <Card className="h-full">
+              <div className="flex items-center justify-between h-full">
+                <CardHeader className="gap-1 flex-grow">
+                  <CardTitle className="text-lg">
+                    {formatDateTime(interview.createdAt)}
+                  </CardTitle>
+                  <CardDescription>{interview.duration}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ArrowRightIcon className="size-6" />
+                </CardContent>
+              </div>
+            </Card>
+          </Link>
+        ))}
+      </div>
+    </div>
   );
 }
