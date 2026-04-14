@@ -17,7 +17,7 @@ export default async function InterviewPage({
       <JobInfoBackLink jobInfoId={jobInfoId} />
 
       <Suspense
-        fallback={<Loader2 className="animate-spin m-auto" size={24} />}
+        fallback={<Loader2 className="animate-spin m-auto size-24" />}
       >
         <SuspendedPage jobInfoId={jobInfoId} />
       </Suspense>
@@ -33,7 +33,6 @@ async function SuspendedPage({ jobInfoId }: { jobInfoId: string }) {
   if (!interviews || interviews.length === 0) {
     return redirect(`/dashboard/job-infos/${jobInfoId}/interviews/new`);
   }
-
 
   return (
     <div>Interviews</div>

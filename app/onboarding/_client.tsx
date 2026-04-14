@@ -22,5 +22,5 @@ export function OnboardingClient({ userId }: { userId: string }) {
     }, 300);
   }, [userId, router]);
 
-  return <Loader2Icon className="animate-spin" size={24} />;
+  return <Loader2Icon className="animate-spin size-24" />;
 }
