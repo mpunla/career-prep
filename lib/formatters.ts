@@ -3,6 +3,8 @@ const DATE_TIME_FORMATTER = new Intl.DateTimeFormat(undefined, {
   timeStyle: "short",
 });
 
-export function formatDateTime(date: Date) {
+export function formatDateTime(date?: Date) {
+  if (!date) return "";
+  
   return DATE_TIME_FORMATTER.format(date);
 }

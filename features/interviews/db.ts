@@ -1,6 +1,6 @@
 import { db } from "@/drizzle/db";
 import { InterviewTable } from "@/drizzle/schema";
-import { revalidateInterviewsCache } from "@/features/interviews/dbCache";
+import { revalidateInterviewCache } from "@/features/interviews/dbCache";
 import { eq } from "drizzle-orm";
 
 export async function insertInterview(
@@ -11,7 +11,7 @@ export async function insertInterview(
     .values(interview)
     .returning({ id: InterviewTable.id, jobInfoId: InterviewTable.jobInfoId });
 
-  revalidateInterviewsCache(newInterview.id, newInterview.jobInfoId);
+  revalidateInterviewCache(newInterview);
 
   return newInterview;
 }
@@ -20,13 +20,13 @@ export async function updateInterview(
   id: string,
   interview: Partial<typeof InterviewTable.$inferInsert>,
 ) {
-  const [newInterview] = await db
+  const [updatedInterview] = await db
     .update(InterviewTable)
     .set(interview)
     .where(eq(InterviewTable.id, id))
     .returning({ id: InterviewTable.id, jobInfoId: InterviewTable.jobInfoId });
 
-  revalidateInterviewsCache(newInterview.id, newInterview.jobInfoId);
+  revalidateInterviewCache(updatedInterview);
 
-  return newInterview;
+  return updatedInterview;
 }

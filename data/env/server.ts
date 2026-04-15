@@ -8,6 +8,7 @@ export const env = createEnv({
     ARCJET_KEY: z.string().min(1),
     CLERK_SECRET_KEY: z.string().min(1),
     DATABASE_URL: z.string().min(1),
+    GOOGLE_GENERATIVE_AI_API_KEY: z.string().min(1),
     HUME_API_KEY: z.string().min(1),
     HUME_SECRET_KEY: z.string().min(1),
   },

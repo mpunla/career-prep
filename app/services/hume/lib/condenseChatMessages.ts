@@ -1,10 +1,11 @@
 import { ConnectionMessage, JSONMessage } from "@humeai/voice-react";
 
 type ReturnChatEvent = {
-    messageText: string;
-    type: "USER_MESSAGE" | "AGENT_MESSAGE";
-}
-type Message =  ConnectionMessage | JSONMessage | ReturnChatEvent;
+  message?: { content: string };
+  messageText?: string;
+  type: string;
+};
+type Message = ConnectionMessage | JSONMessage | ReturnChatEvent;
 
 export function condenseChatMessages(messages: Message[]) {
   return messages.reduce(
@@ -39,7 +40,7 @@ function getJsonMessageData(message: Message) {
 
   return {
     isUser: message.type === "user_message",
-    content: message.message.content,
+    content: message?.message?.content ?? "",
   };
 }
 

@@ -19,7 +19,6 @@ export default async function InterviewsPage({
   return (
     <div className="container py-4 gap-4 h-screen-header flex flex-col items-start">
       <JobInfoBackLink jobInfoId={jobInfoId} />
-
       <Suspense
         fallback={<Loader2Icon className="size-24 animate-spin m-auto" />}
       >

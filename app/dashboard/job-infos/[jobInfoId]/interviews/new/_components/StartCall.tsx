@@ -83,13 +83,13 @@ export function StartCall({
   useEffect(() => {
     if (readyState !== VoiceReadyState.CLOSED) return;
     if (!interviewId) {
-      return router.push(`/app/job-infos/${jobInfo.id}/interviews`);
+      return router.push(`/dashboard/job-infos/${jobInfo.id}/interviews`);
     }
 
     if (durationRef.current !== null) {
       updateInterview(interviewId, { duration: durationRef.current });
     }
-    router.push(`/app/job-infos/${jobInfo.id}/interviews/${interviewId}`);
+    router.push(`/dashboard/job-infos/${jobInfo.id}/interviews/${interviewId}`);
   }, [interviewId, jobInfo.id, readyState, router]);
 
   if (readyState === VoiceReadyState.IDLE) {
