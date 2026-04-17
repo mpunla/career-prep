@@ -5,6 +5,6 @@ const DATE_TIME_FORMATTER = new Intl.DateTimeFormat(undefined, {
 
 export function formatDateTime(date?: Date) {
   if (!date) return "";
-  
+
   return DATE_TIME_FORMATTER.format(date);
 }

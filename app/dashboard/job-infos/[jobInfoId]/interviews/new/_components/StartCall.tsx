@@ -1,5 +1,6 @@
 "use client";
 
+import { FullScreenLoader } from "@/app/dashboard/_components/FullScreenLoader";
 import { Controls } from "@/app/dashboard/job-infos/[jobInfoId]/interviews/new/_components/Controls";
 import { Messages } from "@/app/dashboard/job-infos/[jobInfoId]/interviews/new/_components/Messages";
 import { Button } from "@/components/ui/button";
@@ -11,7 +12,6 @@ import {
 } from "@/features/interviews/actions";
 import { errorToast } from "@/lib/errorToast";
 import { useVoice, VoiceReadyState } from "@humeai/voice-react";
-import { Loader2Icon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
@@ -106,11 +106,7 @@ export function StartCall({
     readyState === VoiceReadyState.CONNECTING ||
     readyState === VoiceReadyState.CLOSED
   ) {
-    return (
-      <div className="h-screen-header flex items-center justify-center">
-        <Loader2Icon className="animate-spin size-24" />
-      </div>
-    );
+    return <FullScreenLoader />;
   }
 
   return (

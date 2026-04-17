@@ -1,5 +1,5 @@
+import { FullScreenLoader } from "@/app/dashboard/_components/FullScreenLoader";
 import { VoiceInterview } from "@/app/dashboard/job-infos/[jobInfoId]/interviews/new/_components/VoiceInterview";
-import { Loader2Icon } from "lucide-react";
 import { Suspense } from "react";
 
 export default async function NewInterviewPage({
@@ -10,16 +10,8 @@ export default async function NewInterviewPage({
   const { jobInfoId } = await params;
 
   return (
-    <Suspense fallback={<NewInterviewFallback />}>
+    <Suspense fallback={<FullScreenLoader />}>
       <VoiceInterview jobInfoId={jobInfoId} />
     </Suspense>
-  );
-}
-
-function NewInterviewFallback() {
-  return (
-    <div className="h-screen-header flex items-center justify-center">
-      <Loader2Icon className="animate-spin size-24" />
-    </div>
   );
 }
