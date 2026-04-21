@@ -34,7 +34,7 @@ export function JobInfoForm({
 }: {
   jobInfo?: Pick<
     typeof JobInfoTable.$inferSelect,
-    "id" | "name" | "title" | "description" | "experienceLevel"
+    "description" | "experienceLevel" | "id" | "name" | "title"
   >;
 }) {
   const form = useForm<JobInfoFormData>({
@@ -75,7 +75,6 @@ export function JobInfoForm({
             </Field>
           )}
         />
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
           <Controller
             control={form.control}
@@ -99,7 +98,6 @@ export function JobInfoForm({
               </Field>
             )}
           />
-
           <Controller
             control={form.control}
             name="experienceLevel"
@@ -129,7 +127,6 @@ export function JobInfoForm({
             )}
           />
         </div>
-
         <Controller
           control={form.control}
           name="description"
@@ -142,14 +139,15 @@ export function JobInfoForm({
                 placeholder="Full-Stack web developer role specializing in React, Next.js, and PostgreSQL."
               />
               <FieldDescription>
-                Be as specific as possible. The more information you provide,
-                the better the interviews will be.
+                Specific job details and requirements. This description is used
+                to accurately determine relevant questions and feedback when
+                practicing interviews, answering technical questions, and
+                analyzing your resume.
               </FieldDescription>
               {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
             </Field>
           )}
         />
-
         <Button
           disabled={form.formState.isSubmitting}
           type="submit"
