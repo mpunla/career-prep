@@ -6,7 +6,7 @@ export function feedbackSystemPrompt({
 }: {
   jobInfo: Pick<
     typeof JobInfoTable.$inferSelect,
-    "title" | "description" | "experienceLevel"
+    "description" | "experienceLevel" | "title"
   >;
   userName: string;
 }) {

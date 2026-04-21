@@ -1,4 +1,5 @@
 import { FullScreenLoader } from "@/app/dashboard/_components/FullScreenLoader";
+import { NewQuestionClientPage } from "@/app/dashboard/job-infos/[jobInfoId]/questions/_components/NewQuestionClientPage";
 import { getCurrentUser } from "@/app/services/clerk/lib/getCurrentUser";
 import { getUserJobInfo } from "@/features/jobInfos/actions";
 import { notFound } from "next/navigation";
@@ -24,5 +25,5 @@ async function SuspendedComponent({ jobInfoId }: { jobInfoId: string }) {
   const jobInfo = await getUserJobInfo(jobInfoId, userId);
   if (!jobInfo) return notFound();
 
-  return <NewQuestionClientPage />;
+  return <NewQuestionClientPage jobInfo={jobInfo} />;
 }

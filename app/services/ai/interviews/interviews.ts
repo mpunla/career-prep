@@ -2,7 +2,7 @@ import { JobInfoTable } from "@/drizzle/schema";
 import { fetchChatMessages } from "@/app/services/hume/lib/fetchChatMessages";
 import { google } from "@ai-sdk/google";
 import { generateText } from "ai";
-import { feedbackSystemPrompt } from "@/app/services/ai/feedbackSystemPrompt";
+import { feedbackSystemPrompt } from "@/app/services/ai/interviews/feedbackSystemPrompt";
 
 export async function generateAiInterviewFeedback({
   humeChatId,

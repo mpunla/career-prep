@@ -30,7 +30,7 @@ export default async function InterviewsPage({
 
 async function SuspendedPage({ jobInfoId }: { jobInfoId: string }) {
   const { userId, redirectToSignIn } = await getCurrentUser();
-  if (userId == null) return redirectToSignIn();
+  if (!userId) return redirectToSignIn();
 
   const interviews = await getInterviews(jobInfoId, userId);
   if (interviews.length === 0) {
