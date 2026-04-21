@@ -1,0 +1,27 @@
+import { JobInfoBackLink } from "@/app/dashboard/_components/JobInfoBackLink";
+import { ResumeClientPage } from "@/app/dashboard/job-infos/[jobInfoId]/resume/_components/ResumeClientPage";
+import { Loader2Icon } from "lucide-react";
+import { Suspense } from "react";
+
+export default async function ResumePage({
+  params,
+}: {
+  params: Promise<{ jobInfoId: string }>
+}) {
+  const { jobInfoId } = await params
+
+  return (
+    <div className="container py-4 space-y-4 h-screen-header flex flex-col items-start">
+      <JobInfoBackLink jobInfoId={jobInfoId} />
+      <Suspense
+        fallback={<Loader2Icon className="animate-spin size-24 m-auto" />}
+      >
+        <SuspendedComponent jobInfoId={jobInfoId} />
+      </Suspense>
+    </div>
+  )
+}
+
+async function SuspendedComponent({ jobInfoId }: { jobInfoId: string }) {
+  return <ResumeClientPage jobInfoId={jobInfoId} />
+}
