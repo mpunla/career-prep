@@ -29,12 +29,16 @@ export default async function InterviewPage({
   params: Promise<{ jobInfoId: string; interviewId: string }>;
 }) {
   const { jobInfoId, interviewId } = await params;
-  
-  const { redirectToSignIn, userId } = await getCurrentUser();
-  if (!userId) return redirectToSignIn();
 
-  const interview = getInterview(interviewId, userId);
-  if (!interview) return notFound();
+  const interview = getCurrentUser().then(
+    async ({ userId, redirectToSignIn }) => {
+      if (!userId) return redirectToSignIn();
+
+      const interview = await getInterview(interviewId, userId);
+      if (interview == null) return notFound();
+      return interview;
+    },
+  );
 
   return (
     <div className="container my-4 space-y-4">
@@ -66,7 +70,7 @@ export default async function InterviewPage({
             result={(i) =>
               i.feedback == null ? (
                 <ActionButton
-                  action={generateInterviewFeedback.bind(null, i.id)}
+                  action={generateInterviewFeedback.bind(null, i.id ?? "")}
                 >
                   Generate Feedback
                 </ActionButton>

@@ -48,11 +48,16 @@ export default async function JobInfoPage({
 }) {
   const { jobInfoId } = await params;
 
-  const { redirectToSignIn, userId } = await getCurrentUser();
-  if (!userId) return redirectToSignIn();
+  const jobInfo = getCurrentUser().then(
+    async ({ userId, redirectToSignIn }) => {
+      if (!userId) return redirectToSignIn();
 
-  const jobInfo = getUserJobInfo(jobInfoId, userId);
-  if (!jobInfo) return notFound();
+      const jobInfo = await getUserJobInfo(jobInfoId, userId);
+      if (jobInfo == null) return notFound();
+
+      return jobInfo;
+    },
+  );
 
   return (
     <div className="container my-4 space-y-4">
@@ -106,7 +111,7 @@ export default async function JobInfoPage({
               key={option.href}
             >
               <Card className="h-full flex items-start justify-between flex-row">
-                <CardHeader className="flex-grow">
+                <CardHeader className="grow">
                   <CardTitle>{option.label}</CardTitle>
                   <CardDescription>{option.description}</CardDescription>
                 </CardHeader>

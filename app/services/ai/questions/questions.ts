@@ -8,7 +8,7 @@ import {
   QuestionTable,
 } from "@/drizzle/schema";
 import { google } from "@ai-sdk/google";
-import { streamText } from "ai";
+import { streamText, type ModelMessage } from "ai";
 
 export function generateAiQuestion({
   difficulty,
@@ -30,11 +30,9 @@ export function generateAiQuestion({
   const previousMessages = previousQuestions.flatMap((q) => [
     { role: "user", content: q.difficulty },
     { role: "assistant", content: q.text },
-  ]);
+  ]) satisfies ModelMessage[];
 
   return streamText({
-    experimental_continueSteps: true,
-    maxSteps: 10,
     messages: [
       ...previousMessages,
       {
@@ -56,8 +54,6 @@ export function generateAiQuestionFeedback({
   question: string;
 }) {
   return streamText({
-    experimental_continueSteps: true,
-    maxSteps: 10,
     model: google("gemini-2.5-flash"),
     prompt: answer,
     system: questionFeedbackSystemPrompt(question),

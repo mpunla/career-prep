@@ -49,7 +49,7 @@ export async function updateJobInfo(
     return { error: true, message: "Invalid job data" };
   }
 
-  const existingJobInfo = await getJobInfo(id, userId);
+  const existingJobInfo = await getUserJobInfo(id, userId);
   if (!existingJobInfo) {
     return { error: true, message: "Job info not found" };
   }

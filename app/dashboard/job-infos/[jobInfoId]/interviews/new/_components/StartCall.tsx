@@ -40,9 +40,9 @@ export function StartCall({
   const handleClickStartInterview = async () => {
     const res = await createInterview(jobInfo.id);
     if (res.error) {
-      return errorToast(res.message);
+      return errorToast(res?.message ?? "");
     }
-    setInterviewId(res.id);
+    setInterviewId(res?.id ?? "");
 
     connect({
       auth: { type: "accessToken", value: accessToken },

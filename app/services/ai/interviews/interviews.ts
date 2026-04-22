@@ -36,8 +36,6 @@ export async function generateAiInterviewFeedback({
     .filter((f) => f != null);
 
   const { text } = await generateText({
-    experimental_continueSteps: true,
-    maxSteps: 10,
     model: google("gemini-2.5-flash"),
     prompt: JSON.stringify(formattedMessages),
     system: feedbackSystemPrompt({

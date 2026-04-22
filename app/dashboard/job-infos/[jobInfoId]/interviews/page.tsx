@@ -68,7 +68,7 @@ async function SuspendedPage({ jobInfoId }: { jobInfoId: string }) {
           >
             <Card className="h-full">
               <div className="flex items-center justify-between h-full">
-                <CardHeader className="gap-1 flex-grow">
+                <CardHeader className="gap-1 grow">
                   <CardTitle className="text-lg">
                     {formatDateTime(interview.createdAt)}
                   </CardTitle>
