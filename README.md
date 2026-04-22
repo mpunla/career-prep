@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Career Prep
+
+An AI-powered job preparation tool that helps users practice interviews, answer technical questions, and tailor their resumes based on uploaded job descriptions.
+
+## Features
+
+- **Interview Practice**: Engage in voice-based mock interviews with Hume AI for realistic conversation simulations. Get AI-powered feedback to improve your responses and confidence.
+- **Technical Questions**: Get instant answers and explanations for technical questions across various domains.
+- **Resume Tailoring**: Upload job descriptions and receive personalized resume suggestions to match specific roles.
+
+## Tech Stack
+
+- **Frontend**: React, Next.js, Tailwind CSS, Shadcn UI components
+- **AI Integration**: Vercel AI SDK, Hume AI for voice chat
+- **Security**: Arcjet for application security
+- **Authentication**: Clerk for user management
+- **Database**: Drizzle ORM with PostgreSQL
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js (version 18 or higher)
+- npm, yarn, pnpm, or bun
+- PostgreSQL database
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd career-prep
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. Set up environment variables:
+   - Copy `env.example` to `.env`
+   - Fill in the required environment variables (API keys, database URLs, etc.)
 
-To learn more about Next.js, take a look at the following resources:
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to start using Career Prep.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Usage
 
-## Deploy on Vercel
+1. Sign up or log in using Clerk authentication.
+2. Upload job information to get started.
+3. Practice interviews, answer technical questions, or tailor your resume.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License.
