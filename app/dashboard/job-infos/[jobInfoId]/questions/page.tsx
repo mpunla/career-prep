@@ -1,6 +1,6 @@
 import { FullScreenLoader } from "@/app/dashboard/_components/FullScreenLoader";
 import { NewQuestionClientPage } from "@/app/dashboard/job-infos/[jobInfoId]/questions/_components/NewQuestionClientPage";
-import { getCurrentUser } from "@/app/services/clerk/lib/getCurrentUser";
+import { getCurrentUser } from "@/services/clerk/lib/getCurrentUser";
 import { getUserJobInfo } from "@/features/jobInfos/actions";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";

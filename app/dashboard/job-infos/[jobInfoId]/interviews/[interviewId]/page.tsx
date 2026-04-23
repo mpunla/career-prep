@@ -1,7 +1,7 @@
 import { CondensedMessages } from "@/app/dashboard/job-infos/[jobInfoId]/interviews/new/_components/CondensedMessages";
-import { getCurrentUser } from "@/app/services/clerk/lib/getCurrentUser";
-import { condenseChatMessages } from "@/app/services/hume/lib/condenseChatMessages";
-import { fetchChatMessages } from "@/app/services/hume/lib/fetchChatMessages";
+import { getCurrentUser } from "@/services/clerk/lib/getCurrentUser";
+import { condenseChatMessages } from "@/services/hume/lib/condenseChatMessages";
+import { fetchChatMessages } from "@/services/hume/lib/fetchChatMessages";
 import { BackLink } from "@/components/BackLink";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { Skeleton, SkeletonButton } from "@/components/Skeleton";

@@ -1,5 +1,5 @@
 import { formatExperienceLevel } from "@/app/dashboard/_lib/formatters";
-import { getCurrentUser } from "@/app/services/clerk/lib/getCurrentUser";
+import { getCurrentUser } from "@/services/clerk/lib/getCurrentUser";
 import { BackLink } from "@/components/BackLink";
 import { Skeleton } from "@/components/Skeleton";
 import { SuspendedItem } from "@/components/SuspendedItem";

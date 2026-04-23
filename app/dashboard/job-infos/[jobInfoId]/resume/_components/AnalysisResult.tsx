@@ -1,5 +1,5 @@
 import { FeedbackItem } from "@/app/dashboard/job-infos/[jobInfoId]/resume/_components/FeedbackItem"
-import { aiAnalyzeSchema } from "@/app/services/ai/resumes/schema"
+import { aiAnalyzeSchema } from "@/services/ai/resumes/schema"
 import { Skeleton } from "@/components/Skeleton"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Badge } from "@/components/ui/badge"

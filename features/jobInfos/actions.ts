@@ -1,6 +1,6 @@
 "use server";
 
-import { getCurrentUser } from "@/app/services/clerk/lib/getCurrentUser";
+import { getCurrentUser } from "@/services/clerk/lib/getCurrentUser";
 import { db } from "@/drizzle/db";
 import { JobInfoTable } from "@/drizzle/schema";
 import {

@@ -1,5 +1,5 @@
-import { aiAnalyzeSchema } from "@/app/services/ai/resumes/schema";
-import { analyzeResumeSystemPrompt } from "@/app/services/ai/resumes/systemPrompt";
+import { aiAnalyzeSchema } from "@/services/ai/resumes/schema";
+import { analyzeResumeSystemPrompt } from "@/services/ai/resumes/systemPrompt";
 import { JobInfoTable } from "@/drizzle/schema";
 import { google } from "@ai-sdk/google";
 import { Output, streamText } from "ai";

@@ -1,5 +1,5 @@
 import { StartCall } from "@/app/dashboard/job-infos/[jobInfoId]/interviews/new/_components/StartCall";
-import { getCurrentUser } from "@/app/services/clerk/lib/getCurrentUser";
+import { getCurrentUser } from "@/services/clerk/lib/getCurrentUser";
 import { env } from "@/data/env/server";
 import { getUserJobInfo } from "@/features/jobInfos/actions";
 import { VoiceProvider } from "@humeai/voice-react";

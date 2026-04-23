@@ -1,6 +1,6 @@
 import { FullScreenLoader } from "@/app/dashboard/_components/FullScreenLoader";
 import { OnboardingClient } from "@/app/onboarding/_components/OnboardingClient";
-import { getCurrentUser } from "@/app/services/clerk/lib/getCurrentUser";
+import { getCurrentUser } from "@/services/clerk/lib/getCurrentUser";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
 

@@ -1,4 +1,4 @@
-import { getCurrentUser } from "@/app/services/clerk/lib/getCurrentUser"
+import { getCurrentUser } from "@/services/clerk/lib/getCurrentUser"
 import { Button } from "@/components/ui/button"
 import { SignInButton } from "@clerk/nextjs"
 import { BrainCircuitIcon } from "lucide-react"

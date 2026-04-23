@@ -1,6 +1,6 @@
 import { JobInfoBackLink } from "@/app/dashboard/_components/JobInfoBackLink"
 import { JobInfoForm } from "@/app/dashboard/_components/JobInfoForm"
-import { getCurrentUser } from "@/app/services/clerk/lib/getCurrentUser"
+import { getCurrentUser } from "@/services/clerk/lib/getCurrentUser"
 import { Card, CardContent } from "@/components/ui/card"
 import { getUserJobInfo } from "@/features/jobInfos/actions"
 import { Loader2Icon } from "lucide-react"

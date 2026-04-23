@@ -1,5 +1,5 @@
 import { Navbar } from "@/app/dashboard/_components/Navbar";
-import { getCurrentUser } from "@/app/services/clerk/lib/getCurrentUser";
+import { getCurrentUser } from "@/services/clerk/lib/getCurrentUser";
 import { Loader2Icon } from "lucide-react";
 import { redirect } from "next/navigation";
 import { ReactNode, Suspense } from "react";

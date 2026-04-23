@@ -1,7 +1,7 @@
 "use server";
 
-import { generateAiInterviewFeedback } from "@/app/services/ai/interviews/interviews";
-import { getCurrentUser } from "@/app/services/clerk/lib/getCurrentUser";
+import { generateAiInterviewFeedback } from "@/services/ai/interviews/interviews";
+import { getCurrentUser } from "@/services/clerk/lib/getCurrentUser";
 import { env } from "@/data/env/server";
 import { db } from "@/drizzle/db";
 import { InterviewTable } from "@/drizzle/schema/interviews";

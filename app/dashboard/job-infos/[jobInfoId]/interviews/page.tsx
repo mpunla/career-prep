@@ -1,5 +1,5 @@
 import { JobInfoBackLink } from "@/app/dashboard/_components/JobInfoBackLink";
-import { getCurrentUser } from "@/app/services/clerk/lib/getCurrentUser";
+import { getCurrentUser } from "@/services/clerk/lib/getCurrentUser";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getInterviews } from "@/features/interviews/actions";

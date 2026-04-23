@@ -1,7 +1,7 @@
 "use client";
 
 import { AnalysisResults } from "@/app/dashboard/job-infos/[jobInfoId]/resume/_components/AnalysisResult";
-import { aiAnalyzeSchema } from "@/app/services/ai/resumes/schema";
+import { aiAnalyzeSchema } from "@/services/ai/resumes/schema";
 import {
   Card,
   CardContent,

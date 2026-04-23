@@ -1,5 +1,5 @@
-import { generateAiQuestion } from "@/app/services/ai/questions/questions";
-import { getCurrentUser } from "@/app/services/clerk/lib/getCurrentUser";
+import { generateAiQuestion } from "@/services/ai/questions/questions";
+import { getCurrentUser } from "@/services/clerk/lib/getCurrentUser";
 import { questionDifficulties } from "@/drizzle/schema";
 import { getUserJobInfo } from "@/features/jobInfos/actions";
 import { getQuestions } from "@/features/questions/actions";

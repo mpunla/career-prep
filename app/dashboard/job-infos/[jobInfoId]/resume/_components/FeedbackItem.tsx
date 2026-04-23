@@ -1,4 +1,4 @@
-import { aiAnalyzeSchema } from "@/app/services/ai/resumes/schema";
+import { aiAnalyzeSchema } from "@/services/ai/resumes/schema";
 import { cn } from "@/lib/utils";
 import { AlertCircleIcon, CheckCircleIcon, XCircleIcon } from "lucide-react";
 import z from "zod";

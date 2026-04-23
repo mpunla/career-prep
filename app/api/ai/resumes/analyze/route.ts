@@ -1,5 +1,5 @@
-import { analyzeResumeForJob } from "@/app/services/ai/resumes/resumes";
-import { getCurrentUser } from "@/app/services/clerk/lib/getCurrentUser";
+import { analyzeResumeForJob } from "@/services/ai/resumes/resumes";
+import { getCurrentUser } from "@/services/clerk/lib/getCurrentUser";
 import { getUserJobInfo } from "@/features/jobInfos/actions";
 
 export async function POST(req: Request) {

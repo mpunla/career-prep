@@ -1,6 +1,6 @@
 import { JobInfoForm } from "@/app/dashboard/_components/JobInfoForm";
 import { formatExperienceLevel } from "@/app/dashboard/_lib/formatters";
-import { getCurrentUser } from "@/app/services/clerk/lib/getCurrentUser";
+import { getCurrentUser } from "@/services/clerk/lib/getCurrentUser";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {

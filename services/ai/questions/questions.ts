@@ -1,7 +1,7 @@
 import {
   interviewQuestionSystemPrompt,
   questionFeedbackSystemPrompt,
-} from "@/app/services/ai/questions/systemPrompt";
+} from "@/services/ai/questions/systemPrompt";
 import {
   JobInfoTable,
   QuestionDifficulty,
