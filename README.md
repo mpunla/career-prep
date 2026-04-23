@@ -1,6 +1,7 @@
 # Career Prep
 
 An AI-powered job preparation tool that helps users practice interviews, answer technical questions, and tailor their resumes based on uploaded job descriptions.
+**Live Demo**: [https://career-prep-one.vercel.app/](https://career-prep-one.vercel.app/)
 
 ## Features
 
@@ -28,7 +29,7 @@ An AI-powered job preparation tool that helps users practice interviews, answer 
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/mpunla/career-prep.git
    cd career-prep
    ```
 
@@ -53,7 +54,3 @@ An AI-powered job preparation tool that helps users practice interviews, answer 
 1. Sign up or log in using Clerk authentication.
 2. Upload job information to get started.
 3. Practice interviews, answer technical questions, or tailor your resume.
-
-## License
-
-This project is licensed under the MIT License.
