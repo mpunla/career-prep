@@ -1,8 +1,13 @@
 import { env } from "@/data/env/server";
+import { TEST_ARCJET_KEY } from "@/lib/arcjet";
 import arcjet, { detectBot, shield, slidingWindow } from "@arcjet/next";
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
-const isPublicRoute = createRouteMatcher(["/", "/api/webhooks(.*)", "/sign-in(.*)"]);
+const isPublicRoute = createRouteMatcher([
+  "/",
+  "/api/webhooks(.*)",
+  "/sign-in(.*)",
+]);
 
 const aj = arcjet({
   key: env.ARCJET_KEY,
@@ -21,10 +26,16 @@ const aj = arcjet({
 });
 
 export default clerkMiddleware(async (auth, req) => {
-  const decision = await aj.protect(req);
+  const isArcjetEnabled = env.ARCJET_KEY !== TEST_ARCJET_KEY
+  if (isArcjetEnabled) {
+    console.log('**** Using Arcjet')
+    console.log('**** Using Arcjet')
+    console.log('**** Using Arcjet')
+    const decision = await aj.protect(req);
 
-  if (decision.isDenied()) {
-    return new Response("Access denied", { status: 403 });
+    if (decision.isDenied()) {
+      return new Response("Access denied", { status: 403 });
+    }
   }
 
   if (!isPublicRoute(req)) {

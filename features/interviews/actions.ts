@@ -19,6 +19,7 @@ import { RATE_LIMIT_MESSAGE } from "@/lib/errorToast";
 import arcjet, { request, tokenBucket } from "@arcjet/next";
 import { and, desc, eq, isNotNull } from "drizzle-orm";
 import { cacheTag } from "next/cache";
+import { TEST_ARCJET_KEY } from "@/lib/arcjet";
 
 const aj = arcjet({
   characteristics: ["userId"],
@@ -39,15 +40,18 @@ export async function createInterview(jobInfoId: string) {
     return { error: true, message: "Unauthorized" };
   }
 
-  const decision = await aj.protect(await request(), {
-    requested: 1,
-    userId,
-  });
-  if (decision.isDenied()) {
-    return {
-      error: true,
-      message: RATE_LIMIT_MESSAGE,
-    };
+  const isArcjetEnabled = env.ARCJET_KEY !== TEST_ARCJET_KEY;
+  if (isArcjetEnabled) {
+    const decision = await aj.protect(await request(), {
+      requested: 1,
+      userId,
+    });
+    if (decision.isDenied()) {
+      return {
+        error: true,
+        message: RATE_LIMIT_MESSAGE,
+      };
+    }
   }
 
   const jobInfo = await getJobInfo(jobInfoId);
