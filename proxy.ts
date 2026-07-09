@@ -28,9 +28,6 @@ const aj = arcjet({
 export default clerkMiddleware(async (auth, req) => {
   const isArcjetEnabled = env.ARCJET_KEY !== TEST_ARCJET_KEY
   if (isArcjetEnabled) {
-    console.log('**** Using Arcjet')
-    console.log('**** Using Arcjet')
-    console.log('**** Using Arcjet')
     const decision = await aj.protect(req);
 
     if (decision.isDenied()) {
