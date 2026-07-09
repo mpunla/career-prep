@@ -1,6 +1,5 @@
 import { generateAiQuestionFeedback } from "@/services/ai/questions/questions";
 import { getCurrentUser } from "@/services/clerk/lib/getCurrentUser";
-import { getQuestion } from "@/features/questions/actions";
 import { createUIMessageStream, createUIMessageStreamResponse } from "ai";
 import z from "zod";
 
